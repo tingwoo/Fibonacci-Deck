@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Noto+Serif+TC:wght@500&family=Shippori+Mincho:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.ti{
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+}
+
+.ja{
+  font-family: 'Shippori Mincho', serif;
+}
+
+.zh{
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6{
+  /* font-family: Georgia, sans-serif; */
+}
+
+body {
+  margin: 0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
