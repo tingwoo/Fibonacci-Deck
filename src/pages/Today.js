@@ -1,6 +1,12 @@
+import './Today.css'
+import CardColumn from '../components/CardColumn'
+
 function Today() {
     return (
-        <h1>Today</h1>
+        <div className="card-columns">
+            <CardColumn />
+            <CardColumn />
+        </div>
     );
 }
   
