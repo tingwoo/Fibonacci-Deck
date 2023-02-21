@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Noto+Serif+TC:wght@500&family=Shippori+Mincho:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Noto+Serif+TC:wght@400;600&family=Shippori+Mincho:wght@400;600&display=swap');
 
 * {
   margin: 0;
@@ -15,13 +15,24 @@
   font-weight: 700;
 }
 
-.ja{
+.ja-regular{
   font-family: 'Shippori Mincho', serif;
+  font-weight: 400;
 }
 
-.zh{
+.ja-bold{
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+}
+
+.zh-regular{
   font-family: 'Noto Serif TC', serif;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+.zh-bold{
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 600;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -29,6 +40,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 body {
+  background-color: #F5F5F5;
   margin: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

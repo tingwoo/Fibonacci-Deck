@@ -4,3 +4,13 @@
   padding: 40px;
   text-align: center;
 }
+
+.block{
+  visibility: hidden;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  z-index:100;
+  transition: 0.4s;
+}

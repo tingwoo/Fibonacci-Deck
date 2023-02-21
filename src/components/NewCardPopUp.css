@@ -1,0 +1,102 @@
+.new-card-pop-up{
+    font-size: 16px;
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+    transform: translateX(-50%) translateY(101%);
+    width: 40em;
+    height: auto;
+    padding: 2em;
+    background-color: #F5F5F5;
+    border-radius: 0.4em;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.25);
+    z-index: 101;
+    transition: 0.4s;
+}
+
+.input-box{
+    position: relative;
+    margin: 1em auto 1em auto;
+    /* border: 1px solid black; */
+    width: 37em;
+    height: 2.7em;
+    border-radius: 1em;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    background-color: #FCFCFC;
+    transition: 0.3s;
+}
+
+.form-button-set{
+    position: relative;
+    width: 37em;
+    /* height: 1em; */
+    margin: auto;
+    margin-top: 3em;
+}
+
+.input-box:has(.input-box-field:focus) {
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.15);
+}
+
+.input-box-text{
+    position: absolute;
+    /* background-color: pink; */
+    color: #999999;
+    width: 4.5em;
+    margin-left: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-box-field{
+    position: absolute;
+    /* background-color: grey; */
+    width: 29em;
+    margin-right: 1.2em;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.save-button{
+    position: relative; 
+    width: 5em;
+    height: 2.5em;
+    border-radius: 17px;
+    background-color: #fcfcfc;
+    color: #303030;
+    box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    
+}
+
+.save-button:hover{
+    box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.15);
+    transform: scale(1.2)
+}
+
+.save-button:active{
+    box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.10);
+    background-color: #dcdcdc;
+    transform: scale(1.1)
+}
+
+.save-button .save-button-text{
+    pointer-events: none;
+
+    font-size: 12px;
+    width: 5em;
+    color: rgba(50, 50, 50, 0);
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 90%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.save-button:hover .save-button-text {
+    color: rgba(50, 50, 50, 1);
+}

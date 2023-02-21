@@ -1,4 +1,5 @@
 .sidebar{
+    background-color: #FCFCFC;
     box-sizing: border-box;
     height: 100%;
     width: 320px;
@@ -26,5 +27,7 @@
 }
 
 .sidebar-option:hover{
+    /* border-bottom: 1px solid black; */
+    /* text-decoration: underline; */
     transform: scale(1.05);
 }
