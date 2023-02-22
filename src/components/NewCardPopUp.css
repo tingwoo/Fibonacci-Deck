@@ -1,4 +1,5 @@
 .new-card-pop-up{
+    user-select: none;
     font-size: 16px;
     position: fixed;
     left: 50%;
@@ -56,6 +57,64 @@
     right: 0%;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.form-tags-selected{
+    font-size: 0.9em;
+    background-color: #E5E5E5;
+    color: #505050;
+    border-radius: 5px;
+    margin: auto 3px;
+    padding: 1px 4px 1px 1px; 
+    white-space: nowrap;
+}
+
+.form-tags-remove-button{
+    width: 0.9em;
+    height: 0.9em;
+    margin: auto 0.3em;
+    background-color: #909090;
+    border-radius: 0.4em;
+    cursor: pointer;
+}
+
+.form-tags-remove-button:hover{
+    background-color: #707070;
+}
+
+.form-tags{
+    font-size: 0.9em;
+    background-color: #E5E5E5;
+    color: #505050;
+    border-radius: 5px;
+    margin: auto 6px auto 0px;
+    padding: 1px 4px 1px 4px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.form-tags:hover{
+    background-color: #C5C5C5;
+}
+
+.form-tags-box{
+    box-sizing: border-box;
+    position: relative;
+    margin: 0.3em auto 1em auto;
+    padding: 0.4em 1.2em;
+    /* border: 1px solid black; */
+    width: 37em;
+    height: auto;
+    min-height: 43.8px;
+    border-radius: 1em;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    background-color: #FCFCFC;
+    transition: 0.3s;
+}
+
+.form-tags-group{
+    /* margin: 1.2em auto 1.2em 1.2em; */
+    line-height: 30px;
 }
 
 .save-button{

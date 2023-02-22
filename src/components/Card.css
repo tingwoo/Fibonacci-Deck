@@ -52,6 +52,7 @@
 .card .card-front,
 .card .card-back{
     backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
 }
 
 .card .card-back{

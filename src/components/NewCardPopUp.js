@@ -13,8 +13,16 @@ function NewCardPopUp() {
         document.getElementById("new-card-pop-up").style.bottom = "0%"
     }
 
+    const handleChange = (event) => {
+
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
+
     const cancelInput = () => {
-        
+        // document.getElementById("123we").click()
     }
 
     const saveInput = () => {
@@ -25,19 +33,25 @@ function NewCardPopUp() {
         <div className="new-card-pop-up" id="new-card-pop-up">
             <p className="zh-bold" style={{fontSize: "30px", textAlign: "center", marginBottom:"25px"}}>新增卡片</p>
 
-            <NewCardForm />
-            
-            <div className="form-button-set">
-                <button className="save-button" id="cancel" onClick={() => {unblock(); cancelInput();}}>
-                    <CrossIcon style={{width:"32px", fill:"#CF1515"}}/>
-                    <span className="save-button-text zh-bold">捨棄</span>
-                </button>
+            <form onSubmit={handleSubmit} autoComplete="off">
+                <NewCardForm />
 
-                <button className="save-button" onClick={() => {unblock(); saveInput();}} style={{float: "right"}}>
-                    <CheckIcon style={{width:"32px", fill:"#609E26"}}/>
-                    <span className="save-button-text zh-bold" style={{left:"auto", right:"90%"}}>新增</span>
-                </button>
-            </div>
+                {/* you can't see this button */}
+                <button type="reset" id="clearInput"></button>
+                
+                
+                <div className="form-button-set">
+                    <button className="save-button" id="cancel" onClick={() => {unblock(); cancelInput();}}>
+                        <CrossIcon style={{width:"32px", fill:"#CF1515"}}/>
+                        <span className="save-button-text zh-bold">捨棄</span>
+                    </button>
+
+                    <button className="save-button" onClick={() => {unblock(); saveInput();}} style={{float: "right"}}>
+                        <CheckIcon style={{width:"32px", fill:"#609E26"}}/>
+                        <span className="save-button-text zh-bold" style={{left:"auto", right:"90%"}}>新增</span>
+                    </button>
+                </div>
+            </form>
         </div>
     );
 }

@@ -22,11 +22,14 @@ function Today() {
 
     const tmp3 = () => {
         setExtraCardShown(2)
+        document.getElementById("clearInput").click()
+        document.getElementById("clearTag").click()
         document.getElementById("block").style.visibility = "visible"
         document.getElementById("block").style.backgroundColor = "rgba(0, 0, 0, 0.5)"
         document.getElementById("new-card-pop-up").style.transform = "translateX(-50%) translateY(50%)"
         document.getElementById("new-card-pop-up").style.bottom = "50%"
-        document.getElementById("first").focus()
+        document.getElementById("newCardInput0").focus()
+        
     }
     
     const plusButton =  <button className="plus-button" onMouseEnter={tmp1} onMouseLeave={tmp2} onClick={tmp3}>

@@ -1,5 +1,6 @@
 // import {useState} from 'react'
 import './Card.css'
+import {ReactComponent as CardBack} from '../img/cardBack.svg'
 
 const levelColor = [
     {backgroundColor:"#B4B4B4"},
@@ -23,7 +24,7 @@ function Card(props) {
     // classNameList = ["card-title", "card-field-short", "card-field-tag", "card-field-long"]
 
     let tagListIndex = [...Array(props.content.tags.length).keys()]
-    let tagList = tagListIndex.map((i) => <span className="card-field-tag" key={i}>{props.content.tags[i]}</span>)
+    let tagList = tagListIndex.map((i) => <span className="card-field-tag" key={i}>{props.settings.nameOfTags[props.content.tags[i]]}</span>)
 
     return (
         <div className={`card ${props.flip ? '' : 'flip'}`} onClick={() => props.func(props.index)}>
@@ -37,7 +38,7 @@ function Card(props) {
 
                 <div className="card-content">
                     
-
+                    {/* title */}
                     {props.layout[0] === -1 ?
                         null : 
                         <p className={`${props.settings.langOfFields[props.layout[0]]}-bold card-title`}>
@@ -45,6 +46,7 @@ function Card(props) {
                         </p>
                     }
 
+                    {/* fields - short */}
                     <p className="card-field-short zh-regular">
                         <span className={props.settings.langOfFields[props.layout[1]] + '-regular'}>
                             {props.content.fields[props.layout[1]]}
@@ -74,6 +76,7 @@ function Card(props) {
                         </span>
                     </p>
                     
+                    {/* tags */}
                     <p className={props.settings.langOfTags + "-regular"}>
                         {props.layout[6] ? tagList : null}
                     </p>
@@ -84,6 +87,8 @@ function Card(props) {
                         null
                     }
 
+
+                    {/* fields - long */}
                     {props.layout[4] === -1 ?
                         null : 
                         <p className={`${props.settings.langOfFields[props.layout[4]]}-regular card-field-long`}>
@@ -100,8 +105,8 @@ function Card(props) {
                 </div>
             </div>
 
-            <div className="card-back">
-                
+            <div className="card-back" style={{boxSizing:"border-box", height:"1em", width:"1.6em", padding:"0.1em"}}>
+                {/* <CardBack style={{fill:"#F1F1F1", objectFit:"fill"}}/> */}
             </div>
         </div>
     );
