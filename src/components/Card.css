@@ -4,7 +4,7 @@
     user-select: none;
     position: relative;
     text-align: center;
-    background-color: #FCFCFC; 
+    background-color: var(--card-color); 
     font-size: 220px;
     width: 1.6em;
     height: 1em;
@@ -21,7 +21,7 @@
     user-select: none;
     position: relative;
     text-align: center;
-    background-color: #FCFCFC; 
+    background-color: var(--card-color); 
     font-size: 220px;
     width: 1.6em;
     height: var(--shown-height, 0);
@@ -93,18 +93,20 @@
 }
 
 .card-title {
+    color: var(--text-0);
     font-size: 1.4em;
     line-height: 1.6em;
     
 }
 
 .card-field-short {
+    color: var(--text-0);
     font-size: 0.7em;
     line-height: 1.8em;
 }
 
 .card-field-long {
-    color: #505050;
+    color: var(--text-3);
     text-align: left;
     font-size: 0.7em;
     line-height: 1.8em;
@@ -112,8 +114,8 @@
 
 .card-field-tag {
     font-size: 0.6em;
-    background-color: #E5E5E5;
-    color: #505050;
+    background-color: var(--tag-color);
+    color: var(--text-2);
     border-radius: 5px;
     margin: 0px 3px;
     padding: 1px 3px;
@@ -122,7 +124,7 @@
 
 .card-divider {
     margin: 10px auto;
-    background: #505050;
+    background: var(--text-3);
     /* width: 280px; */
     height: 1px
 }

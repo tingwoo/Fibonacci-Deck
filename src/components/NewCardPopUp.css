@@ -8,7 +8,7 @@
     width: 40em;
     height: auto;
     padding: 2em;
-    background-color: #F5F5F5;
+    background-color: var(--background-color);
     border-radius: 0.4em;
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.25);
     z-index: 101;
@@ -23,7 +23,7 @@
     height: 2.7em;
     border-radius: 1em;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
-    background-color: #FCFCFC;
+    background-color: var(--card-color);
     transition: 0.3s;
 }
 
@@ -42,7 +42,7 @@
 .input-box-text{
     position: absolute;
     /* background-color: pink; */
-    color: #999999;
+    color: var(--text-4);
     width: 4.5em;
     margin-left: 1.2em;
     top: 50%;
@@ -61,8 +61,8 @@
 
 .form-tags-selected{
     font-size: 0.9em;
-    background-color: #E5E5E5;
-    color: #505050;
+    background-color: var(--tag-color);
+    color: var(--text-2);
     border-radius: 5px;
     margin: auto 3px;
     padding: 1px 4px 1px 1px; 
@@ -84,8 +84,8 @@
 
 .form-tags{
     font-size: 0.9em;
-    background-color: #E5E5E5;
-    color: #505050;
+    background-color: var(--tag-color);
+    color: var(--text-2);
     border-radius: 5px;
     margin: auto 6px auto 0px;
     padding: 1px 4px 1px 4px;
@@ -94,7 +94,7 @@
 }
 
 .form-tags:hover{
-    background-color: #C5C5C5;
+    background-color: var(--tag-hover-color);
 }
 
 .form-tags-box{
@@ -108,7 +108,7 @@
     min-height: 43.8px;
     border-radius: 1em;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
-    background-color: #FCFCFC;
+    background-color: var(--card-color);
     transition: 0.3s;
 }
 
@@ -122,8 +122,7 @@
     width: 5em;
     height: 2.5em;
     border-radius: 17px;
-    background-color: #fcfcfc;
-    color: #303030;
+    background-color: var(--button-color);
     box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.05);
     transition: 0.3s;
     
@@ -136,7 +135,7 @@
 
 .save-button:active{
     box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.10);
-    background-color: #dcdcdc;
+    background-color: var(--button-pressed-color);
     transform: scale(1.1)
 }
 
@@ -145,7 +144,7 @@
 
     font-size: 12px;
     width: 5em;
-    color: rgba(50, 50, 50, 0);
+    color: var(--button-text-color-trans);
     text-align: center;
     padding: 5px 0;
     position: absolute;
@@ -157,5 +156,5 @@
 }
 
 .save-button:hover .save-button-text {
-    color: rgba(50, 50, 50, 1);
+    color: var(--button-text-color);
 }

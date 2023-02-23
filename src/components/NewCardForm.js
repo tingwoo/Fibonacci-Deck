@@ -46,7 +46,7 @@ function NewCardForm() {
                     {[...Array(newCardTag.length).keys()].map((i) => 
                         <span className="form-tags-selected" key={i}>
                             <button className="form-tags-remove-button" onClick={() => {deleteTag(newCardTag[i])}}>
-                                <CrossIcon style={{fill: "#EEE"}}/>
+                                <CrossIcon style={{fill: "var(--tag-color)"}}/>
                             </button>
                             {userData.settings.nameOfTags[newCardTag[i]]}
                         </span>)

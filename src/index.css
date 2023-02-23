@@ -35,12 +35,23 @@
   font-weight: 600;
 }
 
-h1, h2, h3, h4, h5, h6{
-  /* font-family: Georgia, sans-serif; */
-}
-
 body {
-  background-color: #F5F5F5;
+  --text-0: rgb(0, 0, 0);
+  --text-1: rgb(38, 38, 38);
+  --text-2: rgb(75, 75, 75);
+  --text-3: rgb(113, 113, 113);
+  --text-4: rgb(150, 150, 150);
+  
+  --background-color: rgb(245, 245, 245);
+  --tag-color: rgb(229, 229, 229);
+  --tag-hover-color: rgb(197, 197, 197);
+  --card-color: rgb(252, 252, 252);
+  --button-color: rgb(252, 252, 252);
+  --button-pressed-color: rgb(220, 220, 220);
+  --button-text-color: rgba(38, 38, 38, 1);
+  --button-text-color-trans: rgba(38, 38, 38, 0);
+
+  background-color: var(--background-color);
   margin: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
