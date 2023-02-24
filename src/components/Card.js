@@ -1,6 +1,5 @@
 // import {useState} from 'react'
 import './Card.css'
-import {ReactComponent as CardBack} from '../img/cardBack.svg'
 
 const levelColor = [
     {backgroundColor:"#B4B4B4"},
@@ -13,23 +12,22 @@ const levelColor = [
     {background:"linear-gradient(315deg, rgba(89,61,31,1) 0%, rgba(199,125,57,1) 100%)"},
     {background:"linear-gradient(315deg, rgba(110,110,110,1) 0%, rgba(213,213,213,1) 100%)"},
     {background:"linear-gradient(315deg, rgba(197,139,34,1) 0%, rgba(255,209,0,1) 100%)"}
-]
+] // move it to somewhere else 
 
 function Card(props) {
-    // const [flip, setFlip] = useState(props.flip);
-
-    // let cardListIndex = [...Array(props.numOfCards).keys()]
-    // let cardList = cardListIndex.map((i) => <Card flip={flipList[i]} func={flipOne} index={i} key={i} layout={props.layout} settings={props.settings} content={props.cardData[i]}/>)
-
-    // classNameList = ["card-title", "card-field-short", "card-field-tag", "card-field-long"]
 
     let tagListIndex = [...Array(props.content.tags.length).keys()]
     let tagList = tagListIndex.map((i) => <span className="card-field-tag" key={i}>{props.settings.nameOfTags[props.content.tags[i]]}</span>)
 
     return (
-        <div className={`card ${props.flip ? '' : 'flip'}`} onClick={() => props.func(props.index)}>
-            <div className="card-front">
-                {props.layout[7] ?
+        <div 
+            className={`card ${props.flipData ? '' : 'flip'}`}
+            onClick={() => {props.flipFunc(props.index)}}
+            style={{height:(props.empty ? "0px" : "220px"), margin:(props.empty ? "auto" : "0px auto 30px auto")}}
+        >
+            
+            <div className="card-front" style={{opacity:(props.empty ? "0" : "1")}}>
+                {props.layout[7] && props.content.level >= 1 ?
                     <div className="card-level ti" style={levelColor[props.content.level-1]}>
                         {props.content.level}
                     </div> :

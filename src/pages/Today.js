@@ -1,27 +1,17 @@
 import './Today.css'
-import CardColumn from '../components/CardColumn'
-import {useState} from 'react'
-import {ReactComponent as PlusIcon} from '../img/plus.svg'
+import CardGrid from '../components/CardGrid'
+import ButtonsControlAll from '../components/ButtonsControlAll'
+import { useState } from 'react'
+import { ReactComponent as PlusIcon } from '../img/plus.svg'
 
-function Today() {
+function Today(props) {
+    
     // layout: [6] -> show tag, [7] -> show level
-    const [userData, setUserData] = useState(require("../user/testUserData.json"))
-    const [extraCardShown, setExtraCardShown] = useState(0)
+    const [firstCardStat, setFirstCardStat] = useState(false)
+    const [flipList , setFlipList] = useState(Array((props.infoData.numOfCards + props.maxEmptyCards) * 2).fill(true))
 
-    const tmp1 = () => {
-        if(extraCardShown !== 2){
-            setExtraCardShown(1)
-        }
-    }
-
-    const tmp2 = () => {
-        if(extraCardShown !== 2){
-            setExtraCardShown(0)
-        }
-    }
-
-    const tmp3 = () => {
-        setExtraCardShown(2)
+    const summonsPopUp = () => {
+        setFirstCardStat(true)
         document.getElementById("clearInput").click()
         document.getElementById("clearTag").click()
         document.getElementById("block").style.visibility = "visible"
@@ -31,16 +21,73 @@ function Today() {
         document.getElementById("newCardInput0").focus()
         
     }
-    
-    const plusButton =  <button className="plus-button" onMouseEnter={tmp1} onMouseLeave={tmp2} onClick={tmp3}>
+
+    const coverAll = (right) => {
+        if(!right) {
+            setFlipList(flipList.map((v, i) => {return (!(i % 2) && i >= (props.maxEmptyCards - props.numOfNewCards) * 2 ? false : v)}))
+        }else{
+            setFlipList(flipList.map((v, i) => {return (  i % 2 && i >= (props.maxEmptyCards - props.numOfNewCards) * 2  ? false : v)}))
+        }
+    }
+
+    const revealAll = (right) => {
+        if(!right) {
+            setFlipList(flipList.map((v, i) => {return (!(i % 2) && i >= (props.maxEmptyCards - props.numOfNewCards) * 2 ? true : v)}))
+        }else{
+            setFlipList(flipList.map((v, i) => {return (  i % 2 && i >= (props.maxEmptyCards - props.numOfNewCards) * 2  ? true : v)}))
+        }
+    }
+
+    const flipOne = (index) => {
+        const newFlipList = [...flipList] // study this syntax later
+        newFlipList[index] = !newFlipList[index]
+        setFlipList(newFlipList)
+    }
+
+    const plusButton =  <button className="plus-button" onClick={summonsPopUp}>
                             <PlusIcon style={{width:"32px"}}/>
                             <span className="plus-button-text zh-bold">新增卡片</span>
                         </button>
 
     return (
-        <div className="card-columns">
-            <CardColumn numOfCards={userData.cards.length} layout={userData.leftCardLayout} settings={userData.settings} cardData={userData.cards} extraButton={null} extraCardShown={extraCardShown}/>
-            <CardColumn numOfCards={userData.cards.length} layout={userData.rightCardLayout} settings={userData.settings} cardData={userData.cards} extraButton={plusButton} extraCardShown={extraCardShown}/>
+        <div>
+            <div className='today-grid' style={{gridAutoRows:"auto"}}>
+                
+                <div>
+                    <ButtonsControlAll
+                        controlsRight={false}
+                        coverAll={coverAll}
+                        revealAll={revealAll}
+                        additionalButton={null}
+                    />
+                </div>
+                    
+                <div>
+                    <ButtonsControlAll 
+                        controlsRight={true}
+                        coverAll={coverAll}
+                        revealAll={revealAll}
+                        additionalButton={plusButton}
+                    />
+                </div>
+            </div>
+
+
+            {/* {addedCards} */}
+
+            <CardGrid 
+                numOfCards={props.infoData.numOfCards}
+                flipList={flipList}
+                flipFunc={flipOne}
+                rightCardLayout={props.layoutData.right}
+                leftCardLayout={props.layoutData.left}
+                settings={props.settingsData}
+                cards={props.cardsData} // add filters in the future
+                numOfNewCards={props.numOfNewCards}
+                firstCardStat={firstCardStat}
+                maxEmptyCards={props.maxEmptyCards}
+            />
+
         </div>
     );
 }

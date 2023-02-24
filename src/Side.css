@@ -1,0 +1,116 @@
+.side{
+    position: fixed;
+    top: 40px;
+    left: 40px;
+}
+
+.sidebar{
+    background-color: var(--card-color);
+    /* background-color: grey; */
+    border-radius: 15px;
+    height: 350px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+
+}
+
+.sidebar-option{
+    position: relative;
+    background-color: var(--card-color);
+    font-size: 20px;
+    box-sizing: border-box;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 280px;
+    height: 75px;
+    margin: auto;
+    padding: 13px 30px;
+    text-align: left;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    clip-path: inset(-15px 0px 0px 0px);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sidebar-option:hover{
+    transform: translateY(-10%);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-title{
+    background-color: var(--card-color);
+    box-sizing: border-box;
+    text-align: center;
+    
+    height: 100px;
+    width: 280px;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+
+    font-size: 26px;
+    user-select: none;
+}
+
+.daily-info{
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-color);
+    /* background-color: grey; */
+    border-radius: 15px;
+    height: auto;
+    margin-bottom: 40px;
+    padding: 15px 30px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+.next-day-button{
+    position: relative;
+    width: 90px;
+    height: 55px;
+    border-radius: 15px;
+
+    background: var(--button-color);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.next-day-button-icon{
+    opacity: var(--tmp1, 1);
+    fill: rgb(180, 180, 180);
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: 0.3s;
+}
+
+.next-day-button-text{
+    opacity: var(--tmp2, 0);
+    font-size: 15px;
+    text-align: center;
+    color: rgb(120, 120, 120);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 90px;
+}
+
+.next-day-button:hover{
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    --tmp1: 0;
+    --tmp2: 1;
+}
+
+.next-day-button:active{
+    box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
+    background: var(--button-pressed-color);
+    transform: scale(1.02);
+}

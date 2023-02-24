@@ -1,24 +1,51 @@
 import './NewCardPopUp.css'
 import NewCardForm from './NewCardForm'
+import { useState } from 'react'
 import {ReactComponent as CrossIcon} from '../img/cross.svg'
 import {ReactComponent as CheckIcon} from '../img/check.svg'
 
 
-function NewCardPopUp() {
+function NewCardPopUp(props) {
+    const [newCardTag, setNewCardTag] = useState([])
 
-    const unblock = () => {
+    const removesPopUp = () => {
         document.getElementById("block").style.backgroundColor = "rgba(0, 0, 0, 0)"
         document.getElementById("block").style.visibility = "hidden"
         document.getElementById("new-card-pop-up").style.transform = "translateX(-50%) translateY(110%)"
         document.getElementById("new-card-pop-up").style.bottom = "0%"
     }
 
-    const handleChange = (event) => {
-
-    }
-
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
+        const formData = new FormData(event.target);
+
+        const fields = []
+        for (const [, value] of formData) {
+            fields.push(value)
+        }
+
+        while(fields.length < 8){ // not very adaptable
+            fields.push('')
+        }
+
+        const newCardData = {
+            days : 1,
+            level : 1,
+            fields : fields,
+            tags : newCardTag 
+        }
+
+        const tmp = props.numOfNewCards
+
+        props.setNumOfNewCards(props.numOfNewCards + 1)
+
+        props.setCardsData(props.cardsData.map(
+            (v, i) => (i === props.maxEmptyCards - tmp - 1 ? newCardData : v)
+        ))
+
+        
+
+        
     }
 
     const cancelInput = () => {
@@ -26,7 +53,7 @@ function NewCardPopUp() {
     }
 
     const saveInput = () => {
-        
+
     }
 
     return (
@@ -34,19 +61,23 @@ function NewCardPopUp() {
             <p className="zh-bold" style={{fontSize: "30px", textAlign: "center", marginBottom:"25px"}}>新增卡片</p>
 
             <form onSubmit={handleSubmit} autoComplete="off">
-                <NewCardForm />
+                <NewCardForm 
+                    newCardTag={newCardTag}
+                    setNewCardTag={setNewCardTag}
+                    settingsData={props.settingsData}
+                />
 
                 {/* you can't see this button */}
                 <button type="reset" id="clearInput"></button>
                 
                 
                 <div className="form-button-set">
-                    <button className="save-button" id="cancel" onClick={() => {unblock(); cancelInput();}}>
+                    <button type="button" className="save-button" id="cancel" onClick={() => {removesPopUp(); cancelInput();}}>
                         <CrossIcon style={{width:"32px", fill:"#CF1515"}}/>
                         <span className="save-button-text zh-bold">捨棄</span>
                     </button>
 
-                    <button className="save-button" onClick={() => {unblock(); saveInput();}} style={{float: "right"}}>
+                    <button type="submit" className="save-button" onClick={() => {removesPopUp(); saveInput();}} style={{float: "right"}}>
                         <CheckIcon style={{width:"32px", fill:"#609E26"}}/>
                         <span className="save-button-text zh-bold" style={{left:"auto", right:"90%"}}>新增</span>
                     </button>
