@@ -1,0 +1,19 @@
+{
+    "info" : {
+        "numOfCards" : 0
+    },
+
+    "layout" : {
+        "left" : [0, -1, -1, -1, -1, -1, false, true], 
+        "right" : [1, 2, 3, -1, 4, 5, true, false]
+    },
+    
+    "settings" : {
+        "nameOfFields" : ["單字","釋義","假名","重音","例句 1","例句 2"],
+        "langOfFields" : ["ja", "zh", "ja", "zh", "ja", "ja", "", ""],
+        "nameOfTags" : ["自動詞", "他動詞", "一類動詞", "二類動詞", "三類動詞", "名詞", "副詞", "い形容詞", "な形容詞", "文法"],
+        "langOfTags" : "zh"
+    },
+
+    "cards" : []
+}

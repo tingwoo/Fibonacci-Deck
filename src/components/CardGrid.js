@@ -1,11 +1,14 @@
 import Card from './Card'
 
 function CardGrid(props) {
+    const handleUndefined = (t) =>{
+        return t === undefined ? true : t
+    }
 
     let cardListIndex = [...Array((props.numOfCards + props.maxEmptyCards) * 2).keys()]
     let cardList = cardListIndex.map((i) => (i >= (props.maxEmptyCards - props.numOfNewCards) * 2 ?
         <Card 
-            flipData={props.flipList[i]}
+            flipData={handleUndefined(props.flipList[i])}
             flipFunc={props.flipFunc}
             index={i}
             key={i}
@@ -15,7 +18,7 @@ function CardGrid(props) {
             empty={false}
         /> :
         <Card 
-            flipData={props.flipList[i]}
+            flipData={handleUndefined(props.flipList[i])}
             flipFunc={props.flipFunc}
             index={i}
             key={i}

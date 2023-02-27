@@ -3,6 +3,7 @@ import NewCardForm from './NewCardForm'
 import { useState } from 'react'
 import {ReactComponent as CrossIcon} from '../img/cross.svg'
 import {ReactComponent as CheckIcon} from '../img/check.svg'
+import axios from 'axios'
 
 
 function NewCardPopUp(props) {
@@ -43,9 +44,11 @@ function NewCardPopUp(props) {
             (v, i) => (i === props.maxEmptyCards - tmp - 1 ? newCardData : v)
         ))
 
-        
-
-        
+        axios.post('/postapi', newCardData).then((response) => {
+            console.log(response.data)
+            // console.log(response.status)
+            // console.log(response.data.token)
+        })
     }
 
     const cancelInput = () => {

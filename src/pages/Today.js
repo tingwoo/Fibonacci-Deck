@@ -1,15 +1,20 @@
 import './Today.css'
 import CardGrid from '../components/CardGrid'
 import ButtonsControlAll from '../components/ButtonsControlAll'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ReactComponent as PlusIcon } from '../img/plus.svg'
 
 function Today(props) {
     
     // layout: [6] -> show tag, [7] -> show level
     const [firstCardStat, setFirstCardStat] = useState(false)
-    const [flipList , setFlipList] = useState(Array((props.infoData.numOfCards + props.maxEmptyCards) * 2).fill(true))
-
+    const [flipList, setFlipList] = useState(Array(10000).fill(true))
+    // console.log(flipList[100000])
+    
+    useEffect(() => {
+        setFlipList(Array((props.infoData.numOfCards + props.maxEmptyCards) * 2).fill(true));
+    }, [props.infoData]);
+    
     const summonsPopUp = () => {
         setFirstCardStat(true)
         document.getElementById("clearInput").click()
@@ -84,12 +89,11 @@ function Today(props) {
                 settings={props.settingsData}
                 cards={props.cardsData} // add filters in the future
                 numOfNewCards={props.numOfNewCards}
-                firstCardStat={firstCardStat}
                 maxEmptyCards={props.maxEmptyCards}
             />
 
         </div>
-    );
+    )
 }
   
 export default Today;

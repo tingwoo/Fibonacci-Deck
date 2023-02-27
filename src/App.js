@@ -1,12 +1,13 @@
 import './App.css';
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Today from './pages/Today'
 import List from './pages/List'
 import NotFound from './pages/NotFound'
 import Sidebar from './components/Sidebar'
 import DailyInfo from './components/DailyInfo'
 import NewCardPopUp from './components/NewCardPopUp'
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 function App() {
     const emptyCards = {
@@ -17,12 +18,27 @@ function App() {
     }
     const maxEmptyCards = 10
 
-    const originUserData = require("./user/testUserData.json")
-    const [infoData, ] = useState(originUserData.info) // does not consider empty cards
-    const [layoutData, ] = useState(originUserData.layout)
-    const [settingsData, ] = useState(originUserData.settings) 
+    const originUserData = require("./user/default.json")
+    const [infoData, setInfoData] = useState(originUserData.info) // does not consider empty cards
+    const [layoutData, setLayoutData] = useState(originUserData.layout)
+    const [settingsData, setSettingsData] = useState(originUserData.settings) 
     const [cardsData, setCardsData] = useState([...Array(maxEmptyCards).fill(emptyCards), ...originUserData.cards])
     const [numOfNewCards, setNumOfNewCards] = useState(0)
+    // const [backendData, setBackendData] = useState([{}])
+
+    useEffect(() => {
+
+        console.log('fetch api')
+
+        axios.get("/api").then((res) => {
+            console.log(res.data)
+            setInfoData(res.data.info)
+            setLayoutData(res.data.layout)
+            setSettingsData(res.data.settings)
+            setCardsData([...Array(maxEmptyCards).fill(emptyCards), ...res.data.cards])
+        })
+        
+    }, [])
 
     return (
       
@@ -58,7 +74,15 @@ function App() {
                             maxEmptyCards={maxEmptyCards}
                         />
                     } />
-                    <Route path="List" element={<List />} />
+                    <Route path="list" element={
+                        <List
+                            infoData={infoData}
+                            layoutData={layoutData}
+                            settingsData={settingsData}
+                            cardsData={cardsData}
+                            numOfNewCards={numOfNewCards}
+                        />
+                    } />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>

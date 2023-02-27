@@ -1,30 +1,44 @@
 import '../Side.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function Sidebar() {
+    const [currentPage, setCurrentPage] = useState(document.URL)
     const tmp = {textDecoration: 'none', color: "var(--text-0)"}
     
+
     const toLink = (i) => {
-        document.getElementById(`link${i}`).click();
+        document.getElementById(`link${i}`).click()
+        setCurrentPage(document.URL)
     }
+
+    const compareURL = (str) => {
+        return ('http://localhost:3000/' + str === currentPage ? <div className="indicator"></div> : null)
+    }
+
+    const routeNameURL = ['', 'list', 'edit', 'help']
+    const routeNameZh = ['今日練習', '所有卡片', '設定', '說明']
+    const routeNameEn = ['Today\'s Tasks', 'All Cards', 'Edit Layout', 'Help']
+
+    let optionListIndex = [...Array(4).keys()]
+    let optionList = optionListIndex.map((i) => 
+    <div className={`sidebar-option zh-regular`} style={{bottom:`${15 + i * 15}px`}} onClick={() => toLink(i)}>
+        <div style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+            <Link to={`/${routeNameURL[i]}`} style={tmp} id={`link${i}`}>{routeNameZh[i]}</Link>
+            {compareURL(routeNameURL[i])}
+        </div>
+    </div>)
+
+    // console.log(document.URL)
+    // console.log("http://localhost:3000")
 
     return (
         <div className='sidebar'>
             <div className="sidebar-title ti" style={{boxShadow:"none"}}>
                 Fibonacci Deck
             </div>
-            <div className='sidebar-option zh-regular' style={{bottom:"15px"}} onClick={() => toLink(1)}>
-                <Link to="/    " style={tmp} id='link1'>今日練習</Link>
-            </div>
-            <div className='sidebar-option zh-regular' style={{bottom:"30px"}} onClick={() => toLink(2)}>
-                <Link to="/list" style={tmp} id='link2'>所有卡片</Link>
-            </div>
-            <div className='sidebar-option zh-regular' style={{bottom:"45px"}} onClick={() => toLink(3)}>
-                <Link to="/edit" style={tmp} id='link3'>設定</Link>
-            </div>
-            <div className='sidebar-option zh-regular' style={{bottom:"60px"}} onClick={() => toLink(4)}>
-                <Link to="/help" style={tmp} id='link4'>說明</Link>
-            </div>
+            
+            {optionList}
         </div>
     );
 }
