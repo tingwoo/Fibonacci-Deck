@@ -8,7 +8,9 @@ function DailyInfo(props) {
         <div className="daily-info">
             <div>
                 <p className="zh-bold" style={{fontSize:"18px", lineHeight:"30px"}}>{today.getMonth()+1} 月 {today.getDate()} 日</p>
-                <p className="zh-regular" style={{fontSize:"18px", lineHeight:"30px"}}>{props.infoData.numOfCards + props.numOfNewCards} 張卡片</p>
+                <p className="zh-regular" style={{fontSize:"18px", lineHeight:"30px"}}>
+                    {props.cardsToday} 張卡片
+                </p>
             </div>
             <div className="next-day-button">
                 <NextIcon className='next-day-button-icon'/>
