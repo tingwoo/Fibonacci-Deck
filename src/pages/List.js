@@ -17,30 +17,6 @@ function List(props) {
 
     return (
         <div>
-            {/* <div className='today-grid' style={{gridAutoRows:"auto"}}>
-                
-                <div>
-                    <ButtonsControlAll
-                        controlsRight={false}
-                        coverAll={coverAll}
-                        revealAll={revealAll}
-                        additionalButton={null}
-                    />
-                </div>
-                    
-                <div>
-                    <ButtonsControlAll 
-                        controlsRight={true}
-                        coverAll={coverAll}
-                        revealAll={revealAll}
-                        additionalButton={plusButton}
-                    />
-                </div>
-            </div> */}
-
-
-            {/* {addedCards} */}
-
             <CardGrid 
                 numOfCards={props.infoData.numOfCards + props.numOfNewCards}
                 flipList={[]}
@@ -52,7 +28,6 @@ function List(props) {
                 numOfNewCards={0}
                 maxEmptyCards={0}
             />
-
         </div>
     )
 }

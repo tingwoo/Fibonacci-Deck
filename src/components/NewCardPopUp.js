@@ -40,23 +40,13 @@ function NewCardPopUp(props) {
 
         props.setNumOfNewCards(props.numOfNewCards + 1)
 
-        props.setCardsData(props.cardsData.map(
-            (v, i) => (i === props.maxEmptyCards - tmp - 1 ? newCardData : v)
-        ))
+        props.setCardsData(newCardData, tmp)
 
         axios.post('/postapi', newCardData).then((response) => {
             console.log(response.data)
             // console.log(response.status)
             // console.log(response.data.token)
         })
-    }
-
-    const cancelInput = () => {
-        // document.getElementById("123we").click()
-    }
-
-    const saveInput = () => {
-
     }
 
     return (
@@ -75,12 +65,12 @@ function NewCardPopUp(props) {
                 
                 
                 <div className="form-button-set">
-                    <button type="button" className="save-button" id="cancel" onClick={() => {removesPopUp(); cancelInput();}}>
+                    <button type="button" className="save-button" id="cancel" onClick={() => {removesPopUp()}}>
                         <CrossIcon style={{width:"32px", fill:"#CF1515"}}/>
                         <span className="save-button-text zh-bold">捨棄</span>
                     </button>
 
-                    <button type="submit" className="save-button" onClick={() => {removesPopUp(); saveInput();}} style={{float: "right"}}>
+                    <button type="submit" className="save-button" onClick={() => {removesPopUp()}} style={{float: "right"}}>
                         <CheckIcon style={{width:"32px", fill:"#609E26"}}/>
                         <span className="save-button-text zh-bold" style={{left:"auto", right:"90%"}}>新增</span>
                     </button>

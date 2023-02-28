@@ -27,6 +27,7 @@
 
 .switch-button .switch-button-text{
     pointer-events: none;
+    user-select: none;
     
     font-size: 14.4px;
     width: 5em;
@@ -74,6 +75,7 @@
 
 .plus-button .plus-button-text{
     pointer-events: none;
+    user-select: none;
 
     font-size: 12px;
     width: 5em;

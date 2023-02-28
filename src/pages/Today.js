@@ -55,7 +55,7 @@ function Today(props) {
                         </button>
 
     return (
-        <div>
+        <div style={{opacity:(props.isLoading ? "0" : "1"), transition:"0.5s"}}>
             <div className='today-grid' style={{gridAutoRows:"auto"}}>
                 
                 <div>
