@@ -27,9 +27,16 @@ function Card(props) {
             
             <div className="card-front" style={{opacity:(props.empty ? "0" : "1")}}>
                 {props.layout[7] && props.content.level >= 1 ?
-                    <div className="card-level ti" style={levelColor[props.content.level-1]}>
-                        {props.content.level}
-                    </div> :
+                    // should be an option
+                    <div className='card-info with-days'> 
+                        <div className='card-info-level ti' style={levelColor[props.content.level-1]}>
+                            {props.content.level}
+                        </div>
+                        <div className='card-info-days ti'>
+                            {props.content.days}
+                        </div>
+                    </div>
+                    :
                     null
                 }
 

@@ -53,16 +53,49 @@
     padding: 0.6em;
 }
 
-.card-level{
+.card-info{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
     position: absolute;
     font-size: 0.07em;
+    /* width: 2.2em; */
+    transform: translateX(1em) translateY(1em);
+    align-items: baseline;
+}
+
+.card-info-level{ 
+    box-sizing: border-box;
     text-align: center;
     width: 1.3em;
     height: 1.3em;
     line-height: 1.4em;
     border-radius: 0.3em;
     color: white;
-    transform: translateX(70%) translateY(70%);
+}
+
+.card-info.with-days .card-info-level{
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0em;
+}
+
+.card-info-days{ 
+    visibility: hidden;
+    box-sizing: border-box;
+    text-align: center;
+    min-width: 1.3em;
+    width: auto;
+    height: 1.3em;
+    padding: 0px 0.2em;
+    line-height: 1.4em;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    background-color: var(--tag-color);
+    color: var(--text-3);
+}
+
+.card-info.with-days .card-info-days{
+    visibility: visible;
 }
 
 .card-title {

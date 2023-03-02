@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import CardGrid from '../components/CardGrid'
+import SearchBar from '../components/SearchBar'
+
+import './List.css'
 
 function List(props) {
     const defaultUserData = require("../user/default.json")
@@ -31,6 +34,7 @@ function List(props) {
 
     return (
         <div style={{opacity:(userData.isLoading ? "0" : "1"), transition:"0.5s"}}>
+            <SearchBar/>
             <CardGrid 
                 numOfCards={userData.info.numOfCards}
                 flipList={[]}

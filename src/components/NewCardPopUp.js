@@ -15,7 +15,7 @@ function NewCardPopUp(props) {
         document.getElementById("new-card-pop-up").style.transform = "translateX(-50%) translateY(110%)"
         document.getElementById("new-card-pop-up").style.bottom = "0%"
     }
-
+    
     const handleSubmit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.target);
@@ -32,6 +32,7 @@ function NewCardPopUp(props) {
         const newCardData = {
             days : 1,
             level : 1,
+            createdTime : Math.floor(Date.now() / 100) - 16776840000,
             fields : fields,
             tags : newCardTag 
         }
@@ -42,7 +43,7 @@ function NewCardPopUp(props) {
 
         props.setCardsData(newCardData, tmp)
 
-        axios.post('/postapi', newCardData).then((response) => {
+        axios.post('/api-new-card', newCardData).then((response) => {
             console.log(response.data)
             // console.log(response.status)
             // console.log(response.data.token)

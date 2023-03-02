@@ -39,6 +39,7 @@ function Today(props) {
                 cards: [...Array(maxEmptyCards).fill(emptyCards), ...res.data.cards],
                 isLoading: false
             })
+            props.setTotalDays(res.data.info.totalDays)
         }).catch((err) => {
             console.error(err)
         })
@@ -136,7 +137,7 @@ function Today(props) {
                 rightCardLayout={userData.layout.right}
                 leftCardLayout={userData.layout.left}
                 settings={userData.settings}
-                cards={userData.cards} // add filters in the future
+                cards={userData.cards}
                 numOfNewCards={numOfNewCards}
                 maxEmptyCards={maxEmptyCards}
             />
