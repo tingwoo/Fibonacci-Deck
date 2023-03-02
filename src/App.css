@@ -8,6 +8,7 @@
   margin-left: 320px;
   padding: 40px;
   text-align: center;
+  overflow-x: hidden !important;
 }
 
 .block{

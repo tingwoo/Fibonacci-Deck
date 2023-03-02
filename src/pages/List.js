@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import CardGrid from '../components/CardGrid'
+import './List.css'
 
 function List(props) {
     const defaultUserData = require("../user/default.json")

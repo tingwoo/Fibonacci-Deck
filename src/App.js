@@ -10,7 +10,7 @@ import Help from './pages/Help'
 import NotFound from './pages/NotFound'
 
 import Sidebar from './components/Sidebar'
-import DailyInfo from './components/DailyInfo'
+import DaySwitcher from './components/DaySwitcher'
 import Loading from './components/Loading'
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
                 <Sidebar />
                 <Routes>
                     <Route path="/" element={
-                        <DailyInfo cardsToday={cardsToday} isLoading={isLoading}/>
+                        <DaySwitcher cardsToday={cardsToday} isLoading={isLoading} totalDays={20}/>
                     } />
                     <Route path="*" element={null} />
                 </Routes>
@@ -43,6 +43,7 @@ function App() {
                 <Loading isLoading={isLoading}/>
             </div>
         </div>
+        
     );
 }
 

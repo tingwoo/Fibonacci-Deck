@@ -8,7 +8,7 @@
     background-color: var(--card-color);
     /* background-color: grey; */
     border-radius: 15px;
-    height: 350px;
+    /* height: 410px; */
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
     margin-bottom: 40px;
 
@@ -22,7 +22,7 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     width: 280px;
-    height: 75px;
+    /* height: 75px; */
     margin: auto;
     padding: 13px 30px;
     text-align: left;
@@ -61,65 +61,44 @@
     /* border: 1px solid var(--text-2); */
 }
 
-.daily-info{
+.day-switcher{
     user-select: none;
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     background-color: var(--card-color);
     /* background-color: grey; */
     border-radius: 15px;
     height: auto;
     margin-bottom: 40px;
-    padding: 15px 30px;
+    padding: 16px;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
-.next-day-button{
+.switch-day-button{
     position: relative;
-    width: 90px;
-    height: 55px;
-    border-radius: 15px;
+    width: 50px;
+    height: 60px;
+    border-radius: 10px;
 
-    background: var(--button-color);
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
-    transition: 0.3s;
+    background: rgb(240, 240, 240);
+    /* background: var(--button-color); */
+    /* box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15); */
+    transition: 0.1s;
     cursor: pointer;
 }
 
-.next-day-button-icon{
-    opacity: var(--tmp1, 1);
-    fill: rgb(180, 180, 180);
+.switch-day-button:hover{
+    background-color: rgb(220, 220, 220)
+}
+
+.switch-day-button-icon{
+    /* opacity: var(--tmp1, 1); */
+    fill: rgb(170, 170, 170);
     position: absolute;
     width: 40px;
     height: 40px;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    transition: 0.3s;
-}
-
-.next-day-button-text{
-    opacity: var(--tmp2, 0);
-    font-size: 15px;
-    text-align: center;
-    color: rgb(120, 120, 120);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 90px;
-}
-
-.next-day-button:hover{
-    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
-    --tmp1: 0;
-    --tmp2: 1;
-}
-
-.next-day-button:active{
-    box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.15);
-    background: var(--button-pressed-color);
-    transform: scale(1.02);
 }

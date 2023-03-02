@@ -136,7 +136,7 @@ function Today(props) {
                 rightCardLayout={userData.layout.right}
                 leftCardLayout={userData.layout.left}
                 settings={userData.settings}
-                cards={userData.cards} // add filters in the future
+                cards={userData.cards}
                 numOfNewCards={numOfNewCards}
                 maxEmptyCards={maxEmptyCards}
             />
