@@ -71,23 +71,31 @@
     height: 1.3em;
     line-height: 1.4em;
     border-radius: 0.3em;
-    /* border-top-left-radius: 0.3em;
-    border-bottom-left-radius: 0.3em; */
     color: white;
 }
 
+.card-info.with-days .card-info-level{
+    border-top-right-radius: 0em;
+    border-bottom-right-radius: 0em;
+}
+
 .card-info-days{ 
+    visibility: hidden;
     box-sizing: border-box;
     text-align: center;
-    width: 1.3em;
+    min-width: 1.3em;
+    width: auto;
     height: 1.3em;
+    padding: 0px 0.2em;
     line-height: 1.4em;
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
     background-color: var(--tag-color);
-    /* border: 1px solid black; */
     color: var(--text-3);
-    
+}
+
+.card-info.with-days .card-info-days{
+    visibility: visible;
 }
 
 .card-title {

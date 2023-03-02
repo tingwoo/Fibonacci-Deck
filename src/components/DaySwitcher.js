@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 
 function DaySwitcher(props) {
-    const today = new Date();
+    // const today = new Date();
     const navigate = useNavigate()
 
     const goTomorrow = () => {
@@ -31,7 +31,7 @@ function DaySwitcher(props) {
                 <div className="switch-day-button" onClick={goYesterday}>
                     <YesterdayIcon className='switch-day-button-icon'/>
                 </div>
-                <div style={{fontSize: "18px", lineHeight: "30px", textAlign: "center", }}>
+                <div style={{fontSize: "18px", lineHeight: "30px", textAlign: "center", opacity: (props.isLoading ? "0" : "1")}}>
                     <p className="zh-bold">第 {props.totalDays} 天</p>
                     {props.cardsToday > 0 ? 
                         <p className="zh-regular">{props.cardsToday} 張卡片</p> :

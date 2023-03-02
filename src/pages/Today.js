@@ -39,6 +39,7 @@ function Today(props) {
                 cards: [...Array(maxEmptyCards).fill(emptyCards), ...res.data.cards],
                 isLoading: false
             })
+            props.setTotalDays(res.data.info.totalDays)
         }).catch((err) => {
             console.error(err)
         })

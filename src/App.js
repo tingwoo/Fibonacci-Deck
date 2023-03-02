@@ -16,6 +16,7 @@ import Loading from './components/Loading'
 function App() {
     const [cardsToday, setCardsToday] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
+    const [totalDays, setTotalDays] = useState(0)
 
 
     return (
@@ -24,7 +25,7 @@ function App() {
                 <Sidebar />
                 <Routes>
                     <Route path="/" element={
-                        <DaySwitcher cardsToday={cardsToday} isLoading={isLoading} totalDays={20}/>
+                        <DaySwitcher cardsToday={cardsToday} isLoading={isLoading} totalDays={totalDays} id='hello'/>
                     } />
                     <Route path="*" element={null} />
                 </Routes>
@@ -34,7 +35,7 @@ function App() {
             
             <div className="main">
                 <Routes>
-                    <Route path="/"    element={<Today setIsLoading={setIsLoading} setCardsToday={setCardsToday}/>} />
+                    <Route path="/"    element={<Today setIsLoading={setIsLoading} setCardsToday={setCardsToday} setTotalDays={setTotalDays}/>} />
                     <Route path="list" element={<List  setIsLoading={setIsLoading}/>}  />
                     <Route path="help" element={<Help/>}  />
                     <Route path="*"    element={<NotFound />} />
