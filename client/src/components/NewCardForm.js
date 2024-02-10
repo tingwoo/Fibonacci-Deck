@@ -24,7 +24,9 @@ function NewCardForm(props) {
             <input 
                 type="text" 
                 name={`input${i}`} 
-                className={`input-box-field ${props.settingsData.langOfFields[i]}-regular`} id={`newCardInput${i}`}/>
+                className={`input-box-field ${props.settingsData.langOfFields[i]}-regular`} id={`newCardInput${i}`}
+                onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+            />
         </div>
     )
 
